@@ -1,6 +1,6 @@
 [user]
-	name = Kenneth Powers
-	email = ken@kenpowers.net
+	name = Ken Powers
+	email = ken@mediasilo.com
 [alias]
 	branches = branch -avv
 [push]
