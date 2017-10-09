@@ -62,6 +62,10 @@ set synmaxcol=200
 set list
 "" Show cursor position in status line.
 set ruler
+"" Enable code folding
+set foldmethod=syntax
+"" Disable code folding by default
+set nofoldenable
 
 "" Line numbers.
 set number
@@ -191,7 +195,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'pangloss/vim-javascript'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'mattn/emmet-vim'
-Plug 'nelstrom/vim-markdown-folding'
+Plug 'plasticboy/vim-markdown' " requires 'godlygeek/tabular'
 Plug 'leafgarland/typescript-vim'
 Plug 'Quramy/tsuquyomi' " TSServer client
 
@@ -253,3 +257,7 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers=['eslint']
+"" vim-markdown
+let g:vim_markdown_new_list_item_indent = 2
+let g:vim_markdown_frontmatter = 1
+let g:vim_markdown_folding_level = 6
