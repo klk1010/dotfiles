@@ -1,4 +1,9 @@
 "
+" Neovim default settins
+" :h defaults
+"
+
+"
 " General Settings
 "
 if has('vim_starting')
@@ -18,28 +23,16 @@ hi Visual cterm=NONE ctermbg=0 ctermfg=NONE
 hi Search cterm=NONE ctermbg=0 ctermfg=white
 hi Pmenu cterm=NONE ctermbg=white ctermfg=0
 hi MatchParen cterm=NONE ctermbg=NONE ctermfg=red
-"" Indent according to previous line.
-set autoindent
 "" Use spaces instead of tabs.
 set expandtab
 "" Tab key indents by 2 spaces.
 set softtabstop=2
 "" >> indents by 2 spaces.
 set shiftwidth=2
-"" Make backspace work as you would expect.
-set backspace=indent,eol,start
 "" Switch between buffers without having to save first.
 set hidden
-"" Show as much as possible of the last line.
-set display=lastline
 "" Show current mode in command-line.
 set showmode
-"" Show already typed keys when more are expected.
-set showcmd
-"" Highlight while searching with / or ?.
-set incsearch
-"" Keep matches highlighted.
-set hlsearch
 "" Ignore case when searching.
 set ignorecase
 "" If a search contains an uppercase letter, it is case-sensitive.
@@ -58,14 +51,12 @@ set report=0
 set synmaxcol=200
 "" Show invisible characters.
 set list
-"" Show cursor position in status line.
-set ruler
 "" Enable code folding
 set foldmethod=syntax
 "" Disable code folding by default
 set nofoldenable
-"" Ex Command Menu Completion
-set wildmenu
+"" Command timeout
+set ttimeoutlen=50
 
 "" Line numbers.
 set number
@@ -120,17 +111,15 @@ else
 endif
 
 "" Status Line
-let g:modemap={ 'n': 'NORMAL', 'i': 'INSERT', 'v': 'VISUAL' }
+let s:modemap={ 'n': 'NORMAL', 'i': 'INSERT', 'v': 'VISUAL' }
 function! CurrentModeString()
-  return get(g:modemap, mode(), '')
+  return get(s:modemap, mode(), '')
 endfunction
-set laststatus=2
 set noshowmode
-set ttimeoutlen=50
 let g:bufferline_echo=0
-let g:bufferline_modified='[+]'
 set statusline=%{CurrentModeString()}
-set statusline+=%=%f\ %m
+set statusline+=%=%l,%c " ruler
+set statusline+=\ %f
 
 "
 " Begin vim-plug
@@ -153,14 +142,12 @@ Plug 'w0ng/vim-hybrid'
 "" Enhancement Plugs
 Plug 'AndrewRadev/sideways.vim'
 Plug 'AndrewRadev/splitjoin.vim'
-Plug 'Shougo/vimproc.vim', {'do': 'make'}
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'danro/rename.vim'
 Plug 'editorconfig/editorconfig-vim' | Plug 'vim-scripts/PreserveNoEOL'
 Plug 'godlygeek/tabular'
 Plug 'keith/investigate.vim'
-Plug 'mbbill/undotree'
 Plug 'mileszs/ack.vim'
 Plug 'raimondi/delimitmate'
 Plug 'sickill/vim-pasta'
@@ -227,7 +214,6 @@ hi GitGutterDelete ctermfg=red
 hi GitGutterChangeDelete ctermfg=red
 hi! EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg
 set laststatus=2
-set noshowmode
 "" Misc Key bindings
 nmap <silent> dsf ds(db
 "" CtrlP
@@ -256,7 +242,5 @@ let g:vim_markdown_new_list_item_indent = 2
 let g:vim_markdown_frontmatter = 1
 let g:vim_markdown_folding_level = 6
 "" sideways.vim
-nnoremap <leader>h :SidewaysLeft<cr>
-nnoremap <leader>H :SidewaysJumpLeft<cr>
-nnoremap <leader>l :SidewaysRight<cr>
-nnoremap <leader>L :SidewaysJumpRight<cr>
+nnoremap <leader>H :SidewaysLeft<cr>
+nnoremap <leader>L :SidewaysRight<cr>
