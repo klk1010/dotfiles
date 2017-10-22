@@ -151,11 +151,20 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'bling/vim-bufferline'
 Plug 'w0ng/vim-hybrid'
 "" Enhancement Plugs
-Plug 'editorconfig/editorconfig-vim'
-Plug 'vim-scripts/PreserveNoEOL' " Required by EditorConfig for full functionality
+Plug 'AndrewRadev/sideways.vim'
+Plug 'AndrewRadev/splitjoin.vim'
+Plug 'Shougo/vimproc.vim', {'do': 'make'}
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'danro/rename.vim'
+Plug 'editorconfig/editorconfig-vim' | Plug 'vim-scripts/PreserveNoEOL'
+Plug 'godlygeek/tabular'
+Plug 'keith/investigate.vim'
+Plug 'mbbill/undotree'
+Plug 'mileszs/ack.vim'
 Plug 'raimondi/delimitmate'
+Plug 'sickill/vim-pasta'
+Plug 'tommcdo/vim-exchange'
 Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-eunuch'
@@ -164,14 +173,6 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
-Plug 'mbbill/undotree'
-Plug 'godlygeek/tabular'
-Plug 'sickill/vim-pasta'
-Plug 'keith/investigate.vim'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
-Plug 'Shougo/vimproc.vim', {'do': 'make'}
-Plug 'tommcdo/vim-exchange'
-Plug 'mileszs/ack.vim'
 Plug 'w0rp/ale'
 "" Movement Plugs
 Plug 'easymotion/vim-easymotion'
@@ -192,13 +193,12 @@ endif
 Plug 'airblade/vim-gitgutter'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 "" Language Plugs
-Plug 'sheerun/vim-polyglot'
-Plug 'pangloss/vim-javascript'
 Plug 'hail2u/vim-css3-syntax'
-Plug 'mattn/emmet-vim'
-Plug 'plasticboy/vim-markdown' " requires 'godlygeek/tabular'
 Plug 'leafgarland/typescript-vim'
-Plug 'Quramy/tsuquyomi' " TSServer client
+Plug 'mattn/emmet-vim'
+Plug 'pangloss/vim-javascript'
+Plug 'plasticboy/vim-markdown' " requires 'godlygeek/tabular'
+Plug 'sheerun/vim-polyglot'
 
 "" End Plugs
 ""
@@ -250,7 +250,13 @@ let g:ackprg='ag --vimgrep'
 noremap <leader>f :Ack!<Space>''<Left>
 "" ALE
 let g:ale_open_list = 1
+let g:ale_completion_enabled = 1
 "" vim-markdown
 let g:vim_markdown_new_list_item_indent = 2
 let g:vim_markdown_frontmatter = 1
 let g:vim_markdown_folding_level = 6
+"" sideways.vim
+nnoremap <leader>h :SidewaysLeft<cr>
+nnoremap <leader>H :SidewaysJumpLeft<cr>
+nnoremap <leader>l :SidewaysRight<cr>
+nnoremap <leader>L :SidewaysJumpRight<cr>
