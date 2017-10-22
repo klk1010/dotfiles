@@ -1,5 +1,3 @@
-" Originally based on minimal vimrc: https://github.com/mhinz/vim-galore/blob/master/content/minimal-vimrc.vim
-
 "
 " General Settings
 "
@@ -66,6 +64,8 @@ set ruler
 set foldmethod=syntax
 "" Disable code folding by default
 set nofoldenable
+"" Ex Command Menu Completion
+set wildmenu
 
 "" Line numbers.
 set number
@@ -250,8 +250,6 @@ let g:ackprg='ag --vimgrep'
 noremap <leader>f :Ack!<Space>''<Left>
 "" ALE
 let g:ale_open_list = 1
-nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-nmap <silent> <C-j> <Plug>(ale_next_wrap)
 "" vim-markdown
 let g:vim_markdown_new_list_item_indent = 2
 let g:vim_markdown_frontmatter = 1
