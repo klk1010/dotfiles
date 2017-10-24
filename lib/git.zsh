@@ -171,6 +171,11 @@ function ghone() {
 
 alias gignore='git update-index --assume-unchanged'
 alias gignored='git ls-files -v | grep "^[[:lower:]]"'
+alias gim='git imerge'
+alias gimc='git imerge continue'
+alias gimf='git imerge finish'
+alias gimm='git imerge merge'
+alias gimr='git imerge rebase'
 alias ginit='git init'
 function gicd() {
   git init $1 && cd $1
@@ -231,6 +236,7 @@ alias grba='git rebase --abort'
 alias grbc='git rebase --continue'
 alias grbd='git rebase develop'
 alias grbi='git rebase -i'
+alias grbid='git rebase -i develop'
 alias grbim='git rebase -i master'
 alias grbm='git rebase master'
 alias grbm='git rebase master'
